@@ -19,7 +19,7 @@ class UserRepository {
 
   async create(user: User) {
     const newUser = await knex('users').insert(user).returning('*')
-    return newUser
+    return newUser[0]
   }
 
   async update(id: string, user: User) {
@@ -28,7 +28,7 @@ class UserRepository {
       .update(user)
       .returning('*')
 
-    return updatedUser
+    return updatedUser[0]
   }
 
   async delete(id: string) {
