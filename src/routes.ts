@@ -13,6 +13,7 @@ routes.delete('/users/:id', userController.delete)
 
 // Meals
 routes.get('/meals/user/:id', mealController.index)
+routes.get('/meals/user/:id/metrics', mealController.metrics)
 routes.get('/meals/:id', mealController.show)
 routes.post('/meals', mealController.store)
 routes.put('/meals/:id', mealController.update)

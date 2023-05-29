@@ -126,6 +126,23 @@ class MealController {
     await mealRepository.delete(id)
     return response.sendStatus(204)
   }
+
+  async metrics(request: Request, response: Response) {
+    const { id } = request.params
+
+    if (!isValidUUID(id)) {
+      return response.status(400).json({ message: 'Invalid ID' })
+    }
+
+    const user = await userRepository.findById(id)
+
+    if (!user) {
+      return response.status(404).json({ message: 'User not found' })
+    }
+
+    const metrics = await mealRepository.metrics(id)
+    return response.status(200).json({ metrics })
+  }
 }
 
 export const mealController = new MealController()
