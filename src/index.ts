@@ -1,11 +1,12 @@
 import express from 'express'
+import { routes } from './routes'
+import { env } from './env'
 
 const app = express()
 
-app.get('/', (req, res) => {
-  res.send('Well done!')
-})
+app.use(express.json())
+app.use(routes)
 
-app.listen(3000, () => {
-  console.log('The application is listening on port 3000!')
+app.listen(env.PORT, () => {
+  console.log('🔥 Server is running on port 3000!')
 })
