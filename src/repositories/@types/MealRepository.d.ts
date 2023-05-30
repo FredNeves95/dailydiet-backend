@@ -4,7 +4,7 @@ export interface Meal {
   meal_description: string
   meal_date: string
   diet: boolean
-  created_at: string
+  created_at?: string
   user_id: string
 }
 

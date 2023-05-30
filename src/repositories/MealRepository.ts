@@ -14,7 +14,7 @@ class MealRepository {
 
   async create(meal: Meal) {
     const newMeal = await knex('meals').insert(meal).returning('*')
-    return newMeal
+    return newMeal[0]
   }
 
   async update(id: string, meal: Meal) {
@@ -23,7 +23,7 @@ class MealRepository {
       .update(meal)
       .returning('*')
 
-    return updatedMeal
+    return updatedMeal[0]
   }
 
   async delete(id: string) {

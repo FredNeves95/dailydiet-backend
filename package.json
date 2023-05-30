@@ -8,8 +8,8 @@
     "dev": "tsx watch src/index.ts",
     "knex": "node --loader tsx ./node_modules/.bin/knex",
     "lint": "eslint src --ext .ts --fix",
-    "test": "vitest",
-    "test:coverage": "vitest --coverage"
+    "test": "vitest --no-threads",
+    "test:coverage": "vitest --coverage --no-threads"
   },
   "repository": {
     "type": "git",
